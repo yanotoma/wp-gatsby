@@ -10,7 +10,9 @@ const BlogpostLayout = ({ data }) => {
   const keywords = !!data.wpPost.categories.nodes
     ? data.wpPost.categories.nodes.map(node => node.name).join(',')
     : '';
-  const image = getImage(data.wpPost.featuredImage.node.localFile);
+  const image = !!data.wpPost.featuredImage
+    ? getImage(data.wpPost.featuredImage.node.localFile)
+    : null;
 
   return (
     <Theme>
@@ -18,7 +20,7 @@ const BlogpostLayout = ({ data }) => {
         title={innertext(title)}
         description={innertext(excerpt)}
         keywords={keywords}
-        image={data.wpPost.featuredImage.node.localFile.url}
+        image={data.wpPost.featuredImage?.node.localFile.url}
       />
       <div className="container">
         <div className="row justify-content-md-center">
