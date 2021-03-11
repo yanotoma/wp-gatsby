@@ -3,13 +3,14 @@ import React from 'react';
 import SEO from '../components/SEO';
 import Theme from '../components/Theme';
 import innertext from 'innertext';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
 const BlogpostLayout = ({ data }) => {
   const { title, content, excerpt } = data.wpPost;
   const keywords = !!data.wpPost.categories.nodes
     ? data.wpPost.categories.nodes.map(node => node.name).join(',')
     : '';
-  const image = data.wpPost.featuredImage?.node.sourceUrl;
+  const image = getImage(data.wpPost.featuredImage.node.localFile);
 
   return (
     <Theme>
@@ -17,12 +18,13 @@ const BlogpostLayout = ({ data }) => {
         title={innertext(title)}
         description={innertext(excerpt)}
         keywords={keywords}
-        image={image}
+        image={data.wpPost.featuredImage.node.localFile.url}
       />
       <div className="container">
         <div className="row justify-content-md-center">
           <div>
-            {/* <img src={image} alt="title"></img> */}
+            {!!image && <GatsbyImage image={image} alt={title} />}
+
             <h1 dangerouslySetInnerHTML={{ __html: title }} />
             <div dangerouslySetInnerHTML={{ __html: content }} />
           </div>
@@ -40,11 +42,18 @@ export const query = graphql`
       content
       title
       excerpt
+
       featuredImage {
         node {
-          sourceUrl
+          localFile {
+            url
+            childImageSharp {
+              gatsbyImageData(width: 1000, quality: 100)
+            }
+          }
         }
       }
+
       categories {
         nodes {
           name

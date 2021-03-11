@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => {
           key={index}
           title={post.title}
           excerpt={post.excerpt}
-          image={post.featuredImage?.node.sourceUrl}
+          image={post.featuredImage?.node.localFile}
           readMore={`post/${post.slug}`}
         />
       ))}
@@ -32,9 +32,14 @@ export const query = graphql`
         slug
         title
         excerpt
+
         featuredImage {
           node {
-            sourceUrl
+            localFile {
+              childImageSharp {
+                gatsbyImageData(width: 1000, quality: 100)
+              }
+            }
           }
         }
       }

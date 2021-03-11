@@ -25,6 +25,7 @@ const SEO = ({ title, description, keywords, image }) => {
   return (
     <Helmet>
       <title>{seoTitle}</title>
+      <html lang="en" />
       {Object.keys(seoConfig).map(seo => (
         <meta name={seo} content={seoConfig[seo]} key={seo} />
       ))}
