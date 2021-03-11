@@ -1,6 +1,7 @@
 import { Link } from 'gatsby';
 import React from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
+import styled from 'styled-components';
 
 const HeaderStyles = styled.header``;
 
