@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <FooterStyles>
       <div className="container">
-        <span className="text-muted">
+        <span className="text-dark">
           © Gatsby-Bootstrap Project {new Date().getFullYear()}
         </span>
       </div>
