@@ -41,5 +41,17 @@ module.exports = {
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Gatsby Bootstrap`,
+        short_name: `GatsbyJS`,
+        start_url: `/`,
+        background_color: `#FFFF`,
+        theme_color: `#FFFF`,
+        display: `standalone`,
+      },
+    },
+    `gatsby-plugin-offline`,
   ],
 };

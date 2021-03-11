@@ -20,9 +20,9 @@ const Post = ({ title, excerpt, image, readMore }) => {
             <Card.Title
               dangerouslySetInnerHTML={{ __html: title }}
             ></Card.Title>
-            <Card.Text
-              dangerouslySetInnerHTML={{ __html: excerpt }}
-            ></Card.Text>
+            <Card.Text>
+              <div dangerouslySetInnerHTML={{ __html: excerpt }} />
+            </Card.Text>
             <Button variant="warning" as={Link} to={readMore}>
               Read more ...
             </Button>
