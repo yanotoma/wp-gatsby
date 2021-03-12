@@ -16,7 +16,7 @@ const IndexPage = ({ data }) => {
           title={post.title}
           excerpt={post.excerpt}
           image={post.featuredImage?.node.localFile}
-          readMore={`post/${post.slug}`}
+          readMore={post.uri}
         />
       ))}
     </PrimaryLayout>
@@ -32,6 +32,7 @@ export const query = graphql`
         slug
         title
         excerpt
+        uri
 
         featuredImage {
           node {

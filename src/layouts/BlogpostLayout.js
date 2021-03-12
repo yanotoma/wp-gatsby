@@ -39,8 +39,8 @@ const BlogpostLayout = ({ data }) => {
 export default BlogpostLayout;
 
 export const query = graphql`
-  query($slug: String!) {
-    wpPost(slug: { eq: $slug }) {
+  query($id: String!) {
+    wpPost(id: { eq: $id }) {
       content
       title
       excerpt
