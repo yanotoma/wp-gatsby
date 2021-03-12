@@ -11,8 +11,16 @@ module.exports = {
     keyworeds: 'gatsby, gatsbyjs project, gatsby bootstrap',
     image: '/static/gatsby.jpg',
     url: 'https://www.gatsbyjs.org',
+    author: 'Akira Yano',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: [`Montserrat\:100,300,400,500,600,700`],
+        display: 'swap',
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

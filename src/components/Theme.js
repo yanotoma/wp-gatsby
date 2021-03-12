@@ -1,11 +1,22 @@
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import Footer from './Footer';
-import Header from './Header';
+import reset from 'styled-reset';
 
 const theme = {};
 
 const GlobalStyles = createGlobalStyle`
+  ${reset}
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background: black;
+    color: white;
+    font-family: Montserrat, sans-serif;
+  }
+
   .main-content {
     width: 100%;
     height: 100%;
@@ -19,11 +30,7 @@ const Theme = ({ children }) => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <div className="main-content">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-      </div>
+      {children}
     </ThemeProvider>
   );
 };

@@ -1,10 +1,11 @@
 import React from 'react';
-import PrimaryLayout from '../layouts/PrimaryLayout';
+import PageTitle from '../components/PageTitle';
+import ContainerLayout from '../layouts/ContainerLayout';
 
 const AboutPage = () => {
   return (
-    <PrimaryLayout>
-      <h1>About Us</h1>
+    <ContainerLayout>
+      <PageTitle>About</PageTitle>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at
         porttitor nulla. Cras suscipit egestas finibus. Etiam iaculis dui vitae
@@ -17,7 +18,7 @@ const AboutPage = () => {
         vulputate, nibh augue euismod nibh, dictum vestibulum erat massa ac
         libero.
       </p>
-    </PrimaryLayout>
+    </ContainerLayout>
   );
 };
 

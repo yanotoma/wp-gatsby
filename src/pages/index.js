@@ -1,49 +1,14 @@
 import React from 'react';
-import Post from '../components/Post';
 import PrimaryLayout from '../layouts/PrimaryLayout';
-import { graphql } from 'gatsby';
 import SEO from '../components/SEO';
 
-const IndexPage = ({ data }) => {
-  const posts = data.allWpPost.nodes;
-
+const IndexPage = () => {
   return (
     <PrimaryLayout>
       <SEO />
-      {posts.map((post, index) => (
-        <Post
-          key={index}
-          title={post.title}
-          excerpt={post.excerpt}
-          image={post.featuredImage?.node.localFile}
-          readMore={post.uri}
-        />
-      ))}
+      HOME
     </PrimaryLayout>
   );
 };
 
 export default IndexPage;
-
-export const query = graphql`
-  query GetWpPosts {
-    allWpPost {
-      nodes {
-        slug
-        title
-        excerpt
-        uri
-
-        featuredImage {
-          node {
-            localFile {
-              childImageSharp {
-                gatsbyImageData(width: 1000, quality: 100)
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;
