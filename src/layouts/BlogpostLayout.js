@@ -21,6 +21,7 @@ const BlogpostLayout = ({ data }) => {
         description={innertext(excerpt)}
         keywords={keywords}
         image={data.wpPost.featuredImage?.node.localFile.url}
+        style={{ marginBottom: 10 }}
       />
       <div className="container">
         <div className="row justify-content-md-center">
